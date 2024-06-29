@@ -1,7 +1,7 @@
-all: hw4
+all: basic
 
-hw4: FORCE interpreter/booleanExpression.o interpreter/command.o interpreter/interpreter.o interpreter/arithmetic.o
-	g++ -g -Wall -std=c++11 interpreter/booleanExpression.o interpreter/arithmetic.o interpreter/command.o interpreter/interpreter.o main.cpp -o hw4
+basic: FORCE interpreter/booleanExpression.o interpreter/command.o interpreter/interpreter.o interpreter/arithmetic.o
+	g++ -g -Wall -std=c++11 interpreter/booleanExpression.o interpreter/arithmetic.o interpreter/command.o interpreter/interpreter.o main.cpp -o basic
 
 command.o: interpreter/command.h interpreter/command.cpp
 	g++ -g -Wall -std=c++11 -c command.cpp -o command.o
@@ -17,7 +17,7 @@ booleanExpression.o: interpreter/booleanExpression.h interpreter/booleanExpressi
 
 FORCE: ;
 
-.phony: clean hw4
+.phony: clean basic
 
 clean:
-	-@rm -rf interpreter/*.o	
+	-@rm -rf interpreter/*.o ./basic
